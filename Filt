@@ -1,0 +1,22 @@
+global hAxes1 hAxes2 hAxes3 hEda
+tmax=1.4;
+Fd=280;
+A=60;
+F=50;
+T=1/Fd;
+t=0:T:tmax-T;
+X=A*sin(2*pi*F*t);
+axes(hAxes1)
+plot(t,X);
+str=get(hEda,'String'); 
+da=str2num(str); 	
+Y=fs50(X,Fd,da);
+axes(hAxes2)
+plot(t,Y)
+N=length(Y);
+Z=zeros(1,N);
+for i=1:N
+    Z(i)=X(i)-Y(i);
+end
+axes(hAxes3)
+plot(t,Z)
