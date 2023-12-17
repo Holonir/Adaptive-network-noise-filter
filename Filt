@@ -1,11 +1,12 @@
 global hAxes1 hAxes2 hAxes3 hEda
-tmax=1.4;
-Fd=280;
+X=load('R5_08.txt');
+S=length(X);
+Fd=250;
 A=60;
-F=50;
 T=1/Fd;
+tmax=S/Fd;
 t=0:T:tmax-T;
-X=A*sin(2*pi*F*t);
+
 axes(hAxes1)
 plot(t,X);
 str=get(hEda,'String'); 
@@ -20,3 +21,4 @@ for i=1:N
 end
 axes(hAxes3)
 plot(t,Z)
+
